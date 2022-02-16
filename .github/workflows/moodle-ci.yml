@@ -23,12 +23,8 @@ jobs:
 
       - name: Very Debug
         run: |
-          echo "${{ toJSON(hashFiles('plugin/lang/**')) }}"
-          echo "${{ toJSON(hashFiles('plugin/lang/')) }}"
-          echo "${{ toJSON(hashFiles('plugin/lang')) }}"
-          echo "${{ toJSON(hashFiles('plugin/tests/**')) }}"
-          echo "${{ toJSON(hashFiles('plugin/tests/')) }}"
-          echo "${{ toJSON(hashFiles('plugin/tests')) }}"
+          echo "${{ hashFiles('plugin/lang') != '' }}"
+          echo "${{ hashFiles('plugin/tests') != '' }}"
 
       - name: Setup PHP ${{ matrix.php }}
         uses: shivammathur/setup-php@v2
